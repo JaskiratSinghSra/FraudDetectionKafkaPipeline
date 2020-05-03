@@ -2,6 +2,15 @@
 version: "3"
 
 services:
+
+  detector:
+    build: ./detector
+    environment:
+      KAFKA_BROKER_URL: broker:9092
+      TRANSACTIONS_TOPIC: queueing.transactions
+      LEGIT_TOPIC: streaming.transactions.legit
+      FRAUD_TOPIC: streaming.transactions.fraud
+
   generator:
     build: ./generator
     environment:
